@@ -31,6 +31,8 @@ import frc.robot.commands.ReverseShot;
 import frc.robot.commands.shootSlow;
 import frc.robot.commands.shootFast;
 import frc.robot.commands.ShootLength;
+import frc.robot.commands.aimAmp;
+import frc.robot.commands.aimSpeaker;
 import frc.robot.commands.DriveLength;
 
 //import subsystems
@@ -77,7 +79,8 @@ public class RobotContainer {
     private final shootFast m_ShootSlow = new shootFast(m_Shooter);
     private final ReverseShot m_ReverseShot = new ReverseShot(m_Shooter);
     private final shootSlow m_Shootslow = new shootSlow(m_Shooter);
-    
+    private final aimAmp m_aimAmp = new aimAmp(m_robotDrive);
+    private final aimSpeaker m_aimSpeaker = new aimSpeaker(m_robotDrive);
     private final rollerSpinIn m_LowIn = new rollerSpinIn(m_Pickup);
     private final rollorSpinOut m_LowOut = new rollorSpinOut(m_Pickup);
     // Default
@@ -97,6 +100,8 @@ public class RobotContainer {
     private JoystickButton lowIn = new JoystickButton(buttonBoard, 8);
     private JoystickButton lowOut = new JoystickButton(buttonBoard, 10);
     private JoystickButton PickupPistonOn = new JoystickButton(buttonBoard, 9);
+    private JoystickButton aimAmp = new JoystickButton(buttonBoard, 13);
+    private JoystickButton aimSpeaker = new JoystickButton(buttonBoard, 12);
        // Robot maker code from last year, may or may not be needed. 
     //m_chooser.setDefaultOption("Autonomous Command", new Autos(m_driveTrain, m_Shooter, m_Pickup);
 
@@ -141,7 +146,8 @@ public class RobotContainer {
     lowIn.whileTrue(m_LowIn);
     lowOut.whileTrue(m_LowOut);
     PickupPistonOn.toggleOnTrue(new StartEndCommand(m_Pickup::drop, m_Pickup::undrop, m_Pickup));
-    
+    aimAmp.toggleOnTrue(m_aimAmp);
+    aimSpeaker.toggleOnTrue(m_aimSpeaker);
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     new Trigger(m_exampleSubsystem::exampleCondition)
