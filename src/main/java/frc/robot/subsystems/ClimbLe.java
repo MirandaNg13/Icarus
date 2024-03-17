@@ -18,7 +18,7 @@ public class ClimbLe extends SubsystemBase {
   private final WPI_VictorSPX Lmotor1 = new WPI_VictorSPX(MotorConstants.kLClm1);
    private final WPI_VictorSPX Lmotor2 = new WPI_VictorSPX(MotorConstants.kLClm2);
     
-     PowerDistribution PowerDistribution = new PowerDistribution(1, ModuleType.kRev);
+     //PowerDistribution PowerDistribution = new PowerDistribution(1, ModuleType.kRev);
      
      //double current6 = PowerDistribution.getCurrent(6);
     // double current9 = PowerDistribution.getCurrent(9);
@@ -30,15 +30,14 @@ public class ClimbLe extends SubsystemBase {
 
 // left claw goes up.
   public void clawsUpL(){
-    Lmotor1.set(0.5);
-    Lmotor2.set(0.5);
-   
+    Lmotor1.set(-0.5);
+    Lmotor2.set(-0.5);
   }
 
 // left claw goes down.
   public void clawsDownL(){
-    Lmotor1.set(-0.5);
-    Lmotor2.set(-0.5);
+    Lmotor1.set(0.5);
+    Lmotor2.set(0.5);
    
   }
 
@@ -81,8 +80,8 @@ public class ClimbLe extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-     SmartDashboard.putNumber("Left One Voltage", voltLeft1());
-     SmartDashboard.putNumber("Left two Voltage", voltLeft2());
+    // SmartDashboard.putNumber("Left One Voltage", voltLeft1());
+    // SmartDashboard.putNumber("Left two Voltage", voltLeft2());
      
   }
 
@@ -90,7 +89,7 @@ public class ClimbLe extends SubsystemBase {
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
   }
-  public double voltLeft1(){
+ /*  public double voltLeft1(){
     double voltLeft1 = PowerDistribution.getCurrent(5);
     return voltLeft1;
   }
@@ -98,5 +97,5 @@ public class ClimbLe extends SubsystemBase {
     double voltLeft2 = PowerDistribution.getCurrent(6);
     return voltLeft2;
   }
-  
+  */
 }
