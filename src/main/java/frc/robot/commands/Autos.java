@@ -46,8 +46,15 @@ public final class Auto {
     );
   }
 
-  private Auto() {
-    throw new UnsupportedOperationException("This is a utility class!");
-  }
+ // private Auto() {
+  //  throw new UnsupportedOperationException("This is a utility class!");
+  //}
+}
+@Override
+public boolean runsWhenDisabled() {
+   
+    return false;
+
+
 }
 }
