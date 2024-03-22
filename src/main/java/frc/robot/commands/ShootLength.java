@@ -1,22 +1,25 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Pickup;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj.Timer;
 
 public class ShootLength extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Shooter m_Shooter;
-  private final double m_Length;
+  private final Pickup m_Pickup;
+  private final Timer m_timer = new Timer();
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ShootLength(double Length ,Shooter Shooter) {
-    m_Length = Length;
+  public ShootLength( Shooter Shooter, Pickup Pickup) {
+   // m_Length = Length;
     m_Shooter = Shooter;
-
+    m_Pickup = Pickup;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Shooter);
   }
@@ -24,14 +27,22 @@ public class ShootLength extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-  
-  m_Shooter.shoot();
+  m_timer.reset();
+  m_timer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_Shooter.shoot();
+    if (m_timer.get()<4){
+      m_Shooter.shoot();
+     if(m_timer.get()>1.5){
+      m_Pickup.Spit();
+    }
+    } else if (m_timer.get()>4){
+      m_Pickup.Stop();
+      m_Shooter.Stop();
+    }
   }
 
   // Called once the command ends or is interrupted.
@@ -43,6 +54,7 @@ public class ShootLength extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return (true);
+    return m_timer.get() >= 5;
+    //return (true);
   }
 }

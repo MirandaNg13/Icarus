@@ -28,20 +28,19 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 
 
-
+public class Autos extends SequentialCommandGroup {
 /**
  * @param drive
  * @param Shoot
  * @param in
  */
-public class Autos extends SequentialCommandGroup {
-public final class Auto {
-  /** Example static factory for an autonomous command. */
-  public Auto(DriveTrain drive, Shooter shoot, Pickup in) {
+
+
+  public Autos(DriveTrain drive, Shooter shoot, Pickup in) {
     addCommands(
-    new ShootLength (AutoConstants.kShootFor, shoot),
-    new DriveLength(AutoConstants.kDriveFor, AutoConstants.kDriveSpeed ,drive),
-    new PickupLength (AutoConstants.KPikUpFor, in)
+    new ShootLength (shoot, in),
+    new DriveLength(AutoConstants.kDriveFor, AutoConstants.kDriveSpeed ,drive)
+    //new PickupLength (AutoConstants.KPikUpFor, in)
     
     );
   }
@@ -49,7 +48,8 @@ public final class Auto {
  // private Auto() {
   //  throw new UnsupportedOperationException("This is a utility class!");
   //}
-}
+
+
 @Override
 public boolean runsWhenDisabled() {
    

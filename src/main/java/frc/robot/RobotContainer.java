@@ -103,7 +103,7 @@ public class RobotContainer {
     private JoystickButton aimAmp = new JoystickButton(buttonBoard, 13);
     private JoystickButton aimSpeaker = new JoystickButton(buttonBoard, 12);
        // Robot maker code from last year, may or may not be needed. 
-    //m_chooser.setDefaultOption("Autonomous Command", new Autos(m_driveTrain, m_Shooter, m_Pickup);
+    
 
     /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -120,6 +120,8 @@ public class RobotContainer {
         );
     // Configure the trigger bindings
     configureBindings();
+    
+    m_chooser.setDefaultOption("Autonomous Command", new Autos(m_robotDrive, m_Shooter, m_Pickup));
   }
   
 

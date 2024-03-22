@@ -44,8 +44,8 @@ public final class Constants {
     public static final int kSRport2 =6;
   }
   public static class AutoConstants{
-    public static final double kDriveFor = 4;
-    public static final double kDriveSpeed = 0.25;
+    public static final double kDriveFor = 5;
+    public static final double kDriveSpeed = 4.0;
     public static final double kShootFor = 5;
     public static final double KPikUpFor = 5;
 
@@ -74,8 +74,8 @@ public final class Constants {
   }
 
   public static class DriveConstants {
-    public static final double kMaxSpeed = 3.0; // 3 meters per second
-    public static final double kMaxAngularSpeed = Math.PI; // 1/2 rotation per second
+    public static final double kMaxSpeed = 10.0; // 3 meters per second
+    public static final double kMaxAngularSpeed = 2 * Math.PI; // 1/2 rotation per second
     public static final double kDriveDeadband = 0.05;
 
     public static final double kFrontLeftChassisAngularOffset = 0;
@@ -83,7 +83,7 @@ public final class Constants {
     public static final double kBackLeftChassisAngularOffset = 0;
     public static final double kBackRightChassisAngularOffset = 0;
     // just to make the runcommand work in robot container, I think this is the wanted value.
-    public static final boolean kTeleField = true;
+    public static final boolean kTeleField = false;
 
   }
 
