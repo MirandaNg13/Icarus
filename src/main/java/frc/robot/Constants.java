@@ -34,8 +34,8 @@ public final class Constants {
   }
   public static class pneumaticportconstants{
     // Pickup Piston
-    public static final int kPFport1 =1;
-    public static final int kPRport1 =2;
+    public static final int kPFport1 =2;
+    public static final int kPRport1 =1;
     
     // Shooter Dump
     public static final int kSFport1 =4;
@@ -45,7 +45,7 @@ public final class Constants {
   }
   public static class AutoConstants{
     public static final double kDriveFor = 5;
-    public static final double kDriveSpeed = 4.0;
+    public static final double kDriveSpeed = 0.5;
     public static final double kShootFor = 5;
     public static final double KPikUpFor = 5;
 
@@ -60,7 +60,7 @@ public final class Constants {
         
     public static final double kWheelDiameterMeters = Units.inchesToMeters(4);
     public static final int kDrivingMotorPinionTeeth = 12;
-    public static final double kDrivingMotorReduction = (40.0 * 20) / (kDrivingMotorPinionTeeth * 40);
+    public static final double kDrivingMotorReduction = (40.0 * 40) / (kDrivingMotorPinionTeeth * 20);
     public static final double kDrivingEncoderPositionFactor = (kWheelDiameterMeters * Math.PI)
         / kDrivingMotorReduction; // meters
     public static final double kDrivingEncoderVelocityFactor = ((kWheelDiameterMeters * Math.PI)
@@ -77,7 +77,7 @@ public final class Constants {
     public static final double kMaxSpeed = 10.0; // 3 meters per second
     public static final double kMaxAngularSpeed = 6 * Math.PI; // 1/2 rotation per second
     public static final double kDriveDeadband = 0.05;
-    public static final double kDriveDeadbandZ = 0.1;
+    public static final double kDriveDeadbandZ = 0.2;
 
     public static final double kFrontLeftChassisAngularOffset = 0;
     public static final double kFrontRightChassisAngularOffset = 0;

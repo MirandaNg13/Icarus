@@ -188,7 +188,11 @@ public class SwerveModule extends SubsystemBase {
     double angleDeg = angle.getDegrees();
     return angleDeg;
   }
-  
+  public double distance() {
+    var distance = m_driveEncoder.getPosition();
+    return distance;
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

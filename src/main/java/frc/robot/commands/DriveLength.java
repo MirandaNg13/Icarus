@@ -14,8 +14,8 @@ public class DriveLength extends Command {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public DriveLength(double Length ,double Speed, DriveTrain DriveTrain) {
-    m_Length = Length;
+  public DriveLength(double Length, double Speed, DriveTrain DriveTrain) {
+    m_Length = Length; //backward 1 meters
     m_Drive = DriveTrain;
     m_Speed = Speed;
     // Use addRequirements() here to declare subsystem dependencies.
@@ -44,6 +44,6 @@ public class DriveLength extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return Math.abs(m_Drive.DriveVelFL()) >= m_Length;
+    return Math.abs(m_Drive.Distance()) >= m_Length;
   }
 }

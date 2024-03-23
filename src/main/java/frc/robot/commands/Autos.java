@@ -38,7 +38,7 @@ public class Autos extends SequentialCommandGroup {
 
   public Autos(DriveTrain drive, Shooter shoot, Pickup in) {
     addCommands(
-    new ShootLength (shoot, in),
+    //new ShootLength (shoot, in)
     new DriveLength(AutoConstants.kDriveFor, AutoConstants.kDriveSpeed ,drive)
     //new PickupLength (AutoConstants.KPikUpFor, in)
     

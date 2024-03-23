@@ -35,20 +35,20 @@ public class Shooter extends SubsystemBase {
   }
 
    // pushes piston at shooter out.
-   public void dump(){
+   //public void dump(){
   //ShootDown1.set(Value.kForward);
   //ShootDown2.set(Value.kForward);
-  }
+ // }
 
   // pulls piston at shooter in.
-  public void undump(){
+  //public void undump(){
 //ShootDown1.set(Value.kReverse);
 //ShootDown2.set(Value.kReverse);
-  }
+//  }
 
   // makes the Shooter shoot at full speed
   public void shoot(){
-    shootSpeed.set(-1);
+    shootSpeed.set(-0.5);
   }
 // shoot at quarter speed
 public void shootsmall(){
@@ -56,7 +56,7 @@ public void shootsmall(){
 }
   // reverses Shooter
 public void shootReverse(){
-  shootSpeed.set(0.75);
+  shootSpeed.set(0.5);
 }
   
 

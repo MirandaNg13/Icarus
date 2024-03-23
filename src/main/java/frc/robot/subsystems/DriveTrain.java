@@ -231,6 +231,11 @@ public class DriveTrain extends SubsystemBase {
     return angle;
   }
 
+  public double Distance() {
+    var Distance = m_backLeft.distance();
+    return Distance;
+  }
+
 /*
   public void DriveForward() {
     m_backLeft.DriveForward();
