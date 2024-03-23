@@ -17,19 +17,19 @@ import frc.robot.Constants.pneumaticportconstants;
 import frc.robot.Constants.MotorConstants;
 import edu.wpi.first.wpilibj.Encoder; 
 //import edu.wpi.first.wpilibj.Relay;
-public class Pickup extends SubsystemBase {
+public class PickupPiston extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  private WPI_VictorSPX goInOut = new WPI_VictorSPX(MotorConstants.kPick);
-  //private DoubleSolenoid Intake1;
+  //private WPI_VictorSPX goInOut = new WPI_VictorSPX(MotorConstants.kPick);
+  private DoubleSolenoid Intake1;
  
   
-  public Pickup() {
+  public PickupPiston() {
    
 
-    //Intake1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kPFport1 , pneumaticportconstants.kPRport1);
+    Intake1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kPFport1 , pneumaticportconstants.kPRport1);
     
   }
-/*
+
   // pushes out piston at intake.
   public void drop(){
   Intake1.set(Value.kForward);
@@ -40,8 +40,8 @@ public class Pickup extends SubsystemBase {
   public void undrop(){
   Intake1.set(Value.kReverse);
   
-  }*/
-
+  }
+/*
   // makes intake go inward, pulling in notes.
   public void Eat(){
     goInOut.set(0.5);
@@ -57,7 +57,7 @@ public class Pickup extends SubsystemBase {
     goInOut.set(0);
   }
 
-
+*/
   /**
    * Example command factory method.
    *

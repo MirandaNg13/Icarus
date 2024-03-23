@@ -41,6 +41,8 @@ import frc.robot.subsystems.ClimbR;
 import frc.robot.subsystems.Pickup;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.ShooterPistons;
+import frc.robot.subsystems.PickupPiston;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -64,6 +66,8 @@ public class RobotContainer {
     private final Pickup m_Pickup = new Pickup();
     private final Shooter m_Shooter = new Shooter();
     private final DriveTrain m_robotDrive = new DriveTrain();
+    private final ShooterPistons m_shootDump = new ShooterPistons();
+    private final PickupPiston m_PickupPiston = new PickupPiston();
 
   // Joysticks
     private final Joystick buttonBoard = new Joystick(1);
@@ -115,7 +119,7 @@ public class RobotContainer {
                 () -> m_robotDrive.drive(
                 -MathUtil.applyDeadband(m_StickOfHope.getY(), DriveConstants.kDriveDeadband),
                 -MathUtil.applyDeadband(m_StickOfHope.getX(), DriveConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_StickOfHope.getZ(), DriveConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_StickOfHope.getZ(), DriveConstants.kDriveDeadbandZ),
                 DriveConstants.kTeleField), m_robotDrive)
         );
     // Configure the trigger bindings
@@ -144,10 +148,10 @@ public class RobotContainer {
     shootSlow.whileTrue(m_ShootSlow);
     ReverseShot.whileTrue(m_ReverseShot);
     shootsmall.whileTrue(m_Shootslow);
-    ShooterPistonOn.toggleOnTrue(new StartEndCommand( m_Shooter::dump , m_Shooter::undump, m_Shooter));
+    ShooterPistonOn.toggleOnTrue(new StartEndCommand( m_shootDump::dump , m_shootDump::undump, m_Shooter));
     lowIn.whileTrue(m_LowIn);
     lowOut.whileTrue(m_LowOut);
-    PickupPistonOn.toggleOnTrue(new StartEndCommand(m_Pickup::drop, m_Pickup::undrop, m_Pickup));
+    PickupPistonOn.toggleOnTrue(new StartEndCommand(m_PickupPiston::drop, m_PickupPiston::undrop, m_Pickup));
     aimAmp.toggleOnTrue(m_aimAmp);
     aimSpeaker.toggleOnTrue(m_aimSpeaker);
 

@@ -38,10 +38,10 @@ public final class Constants {
     public static final int kPRport1 =2;
     
     // Shooter Dump
-    public static final int kSFport1 =3;
-    public static final int kSRport1 =4;
-    public static final int kSFport2 =5;
-    public static final int kSRport2 =6;
+    public static final int kSFport1 =4;
+    public static final int kSRport1 =3;
+    public static final int kSFport2 =6;
+    public static final int kSRport2 =5;
   }
   public static class AutoConstants{
     public static final double kDriveFor = 5;
@@ -75,8 +75,9 @@ public final class Constants {
 
   public static class DriveConstants {
     public static final double kMaxSpeed = 10.0; // 3 meters per second
-    public static final double kMaxAngularSpeed = 2 * Math.PI; // 1/2 rotation per second
+    public static final double kMaxAngularSpeed = 6 * Math.PI; // 1/2 rotation per second
     public static final double kDriveDeadband = 0.05;
+    public static final double kDriveDeadbandZ = 0.1;
 
     public static final double kFrontLeftChassisAngularOffset = 0;
     public static final double kFrontRightChassisAngularOffset = 0;

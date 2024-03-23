@@ -3,8 +3,8 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.subsystems;
-
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
@@ -12,58 +12,67 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.PowerDistribution;
+import edu.wpi.first.wpilibj.PowerDistribution.ModuleType;
 import frc.robot.Constants.PneumaticsConstants;
 import frc.robot.Constants.pneumaticportconstants;
 import frc.robot.Constants.MotorConstants;
 import edu.wpi.first.wpilibj.Encoder; 
-//import edu.wpi.first.wpilibj.Relay;
-public class Pickup extends SubsystemBase {
+
+public class ShooterPistons extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  private WPI_VictorSPX goInOut = new WPI_VictorSPX(MotorConstants.kPick);
-  //private DoubleSolenoid Intake1;
- 
-  
-  public Pickup() {
-   
 
-    //Intake1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kPFport1 , pneumaticportconstants.kPRport1);
+  //private WPI_VictorSPX shootSpeed = new WPI_VictorSPX( MotorConstants.kShoot );
+  private DoubleSolenoid  ShootDown1 ;
+  private DoubleSolenoid  ShootDown2 ;
+  
+
+  public ShooterPistons() {
     
-  }
-/*
-  // pushes out piston at intake.
-  public void drop(){
-  Intake1.set(Value.kForward);
-  
+
+    ShootDown1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kSFport1 , pneumaticportconstants.kSRport1);
+    ShootDown2 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kSFport2, pneumaticportconstants.kSRport2);
   }
 
-  // pulls in piston at intake.
-  public void undrop(){
-  Intake1.set(Value.kReverse);
-  
-  }*/
-
-  // makes intake go inward, pulling in notes.
-  public void Eat(){
-    goInOut.set(0.5);
+   // pushes piston at shooter out.
+   public void dump(){
+  ShootDown1.set(Value.kForward);
+  ShootDown2.set(Value.kForward);
   }
 
-  // makes intake go out, pushing out notes.
-  public void Spit(){
-    goInOut.set(-1);
+  // pulls piston at shooter in.
+  public void undump(){
+ShootDown1.set(Value.kReverse);
+ShootDown2.set(Value.kReverse);
   }
+/* 
+  // makes the Shooter shoot at full speed
+  public void shoot(){
+    //shootSpeed.set(-1);
+  }
+// shoot at quarter speed
+public void shootsmall(){
+  //shootSpeed.set(-0.25);
+}
+  // reverses Shooter
+public void shootReverse(){
+  shootSpeed.set(0.75);
+}
   
-  // stops intake.
+
+  // stops shooter from shooting
   public void Stop(){
-    goInOut.set(0);
+    shootSpeed.set(0);
   }
 
-
+ */
+  
   /**
    * Example command factory method.
    *
    * @return a command
    */
-  public Command exampleMethodCommand() {
+  public Command ex() {
     // Inline construction of command goes here.
     // Subsystem::RunOnce implicitly requires `this` subsystem.
     return runOnce(
@@ -77,10 +86,12 @@ public class Pickup extends SubsystemBase {
    *
    * @return value of some boolean subsystem state, such as a digital sensor.
    */
-  public boolean exampleCondition() {
+  
+
+  
     // Query some boolean state, such as a digital sensor.
-    return false;
-  }
+    
+  
 
   @Override
   public void periodic() {

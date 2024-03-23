@@ -22,10 +22,10 @@ import edu.wpi.first.math.geometry.Rotation2d;
 
 public class DriveTrain extends SubsystemBase {
   
-  private final Translation2d m_frontLeftLocation = new Translation2d(0.362, 0.235);
-  private final Translation2d m_frontRightLocation = new Translation2d(0.362, -0.235);
-  private final Translation2d m_backLeftLocation = new Translation2d(-0.362, 0.235);
-  private final Translation2d m_backRightLocation = new Translation2d(-0.362, -0.235);
+  private final Translation2d m_frontLeftLocation = new Translation2d(0.292, 0.267);
+  private final Translation2d m_frontRightLocation = new Translation2d(0.292, -0.267);
+  private final Translation2d m_backLeftLocation = new Translation2d(-0.292, 0.267);
+  private final Translation2d m_backRightLocation = new Translation2d(-0.292, -0.267);
 
   private final SwerveModule m_frontLeft= new SwerveModule(
           ControlSystem.kLeftFrontDrive,
@@ -134,6 +134,7 @@ public class DriveTrain extends SubsystemBase {
    * @param fieldRelative Whether the provided x and y speeds are relative to the field.
    */
   public void drive(double xSpeed, double ySpeed, double zRot, boolean fieldRelative) {
+    
     double xSpeedCommanded = xSpeed;
     double ySpeedCommanded = ySpeed;
     double m_currentRotation = zRot;

@@ -34,15 +34,15 @@ public class ClimbR extends SubsystemBase {
   // right claw goes up.
   public void clawsUpR(){
    
-    Rmotor1.set(-0.5);
-    Rmotor2.set(-0.5);
+    Rmotor1.set(-1);
+    Rmotor2.set(-1);
   }
 
  // right claw goes down.
   public void clawsDownR(){
    
-    Rmotor1.set(0.5);
-    Rmotor2.set(0.5);
+    Rmotor1.set(1);
+    Rmotor2.set(1.);
   }
 
   

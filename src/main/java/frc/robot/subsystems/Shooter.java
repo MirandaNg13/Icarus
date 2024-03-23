@@ -23,27 +23,27 @@ public class Shooter extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
 
   private WPI_VictorSPX shootSpeed = new WPI_VictorSPX( MotorConstants.kShoot );
-  private DoubleSolenoid  ShootDown1 ;
-  private DoubleSolenoid  ShootDown2 ;
+ // private DoubleSolenoid  ShootDown1 ;
+ // private DoubleSolenoid  ShootDown2 ;
   
 
   public Shooter() {
     
 
-    ShootDown1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kSFport1 , pneumaticportconstants.kSRport1);
-    ShootDown2 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kSFport2, pneumaticportconstants.kSRport2);
+    //ShootDown1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kSFport1 , pneumaticportconstants.kSRport1);
+    //ShootDown2 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kSFport2, pneumaticportconstants.kSRport2);
   }
 
    // pushes piston at shooter out.
    public void dump(){
-  ShootDown1.set(Value.kForward);
-  ShootDown2.set(Value.kForward);
+  //ShootDown1.set(Value.kForward);
+  //ShootDown2.set(Value.kForward);
   }
 
   // pulls piston at shooter in.
   public void undump(){
-ShootDown1.set(Value.kReverse);
-ShootDown2.set(Value.kReverse);
+//ShootDown1.set(Value.kReverse);
+//ShootDown2.set(Value.kReverse);
   }
 
   // makes the Shooter shoot at full speed
