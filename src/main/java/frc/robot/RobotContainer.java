@@ -20,29 +20,13 @@ import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 //import commands
-import frc.robot.commands.armsDownL;
-import frc.robot.commands.armsDownR;
-import frc.robot.commands.armsUpL;
-import frc.robot.commands.armsUpR;
-import frc.robot.commands.rollerSpinIn;
-import frc.robot.commands.rollorSpinOut;
-import frc.robot.commands.PickupLength;
-import frc.robot.commands.ReverseShot;
-import frc.robot.commands.shootSlow;
-import frc.robot.commands.shootFast;
-import frc.robot.commands.ShootLength;
-import frc.robot.commands.aimAmp;
-import frc.robot.commands.aimSpeaker;
+
 import frc.robot.commands.DriveLength;
 
 //import subsystems
-import frc.robot.subsystems.ClimbLe;
-import frc.robot.subsystems.ClimbR;
-import frc.robot.subsystems.Pickup;
-import frc.robot.subsystems.Shooter;
+
 import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.ShooterPistons;
-import frc.robot.subsystems.PickupPiston;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -61,13 +45,8 @@ public class RobotContainer {
   
   
   // subsystems
-    private final ClimbLe m_ClimbLe = new ClimbLe();
-    private final ClimbR m_ClimbR = new ClimbR();
-    private final Pickup m_Pickup = new Pickup();
-    private final Shooter m_Shooter = new Shooter();
     private final DriveTrain m_robotDrive = new DriveTrain();
-    private final ShooterPistons m_shootDump = new ShooterPistons();
-    private final PickupPiston m_PickupPiston = new PickupPiston();
+    
 
   // Joysticks
     private final Joystick buttonBoard = new Joystick(1);
@@ -76,23 +55,13 @@ public class RobotContainer {
      SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   //Commands
-    private final armsDownL m_ArmsDownL = new armsDownL(m_ClimbLe);
-    private final armsDownR m_ArmsDownR = new armsDownR(m_ClimbR);
-    private final armsUpL m_ArmsUpL = new armsUpL(m_ClimbLe);
-    private final armsUpR m_ArmsUpR = new armsUpR(m_ClimbR);
-    private final shootFast m_ShootSlow = new shootFast(m_Shooter);
-    private final ReverseShot m_ReverseShot = new ReverseShot(m_Shooter);
-    private final shootSlow m_Shootslow = new shootSlow(m_Shooter);
-    private final aimAmp m_aimAmp = new aimAmp(m_robotDrive);
-    private final aimSpeaker m_aimSpeaker = new aimSpeaker(m_robotDrive);
-    private final rollerSpinIn m_LowIn = new rollerSpinIn(m_Pickup);
-    private final rollorSpinOut m_LowOut = new rollorSpinOut(m_Pickup);
-    // Default
+    
+    
     
    
 
 
-    //Button setup
+    /*Button setup
     private JoystickButton armsDownL = new JoystickButton(buttonBoard, 6);
     private JoystickButton armsDownR = new JoystickButton(buttonBoard, 7);
     private JoystickButton armsUpL = new JoystickButton(buttonBoard, 5);
@@ -105,7 +74,9 @@ public class RobotContainer {
     private JoystickButton lowOut = new JoystickButton(buttonBoard, 10);
     private JoystickButton PickupPistonOn = new JoystickButton(buttonBoard, 9);
     private JoystickButton aimAmp = new JoystickButton(buttonBoard, 13);
-    private JoystickButton aimSpeaker = new JoystickButton(buttonBoard, 12);
+    private JoystickButton aimSpeaker = new JoystickButton(buttonBoard, 12); 
+    */
+
        // Robot maker code from last year, may or may not be needed. 
     
 
@@ -141,7 +112,7 @@ public class RobotContainer {
    */
   private void configureBindings() {
 
-    armsDownL.whileTrue(m_ArmsDownL);
+    /*armsDownL.whileTrue(m_ArmsDownL);
     armsDownR.whileTrue(m_ArmsDownR);
     armsUpL.whileTrue(m_ArmsUpL);
     armsUpR.whileTrue(m_ArmsUpR);
@@ -153,7 +124,7 @@ public class RobotContainer {
     lowOut.whileTrue(m_LowOut);
     PickupPistonOn.toggleOnTrue(new StartEndCommand(m_PickupPiston::drop, m_PickupPiston::undrop, m_PickupPiston));
     aimAmp.toggleOnTrue(m_aimAmp);
-    aimSpeaker.toggleOnTrue(m_aimSpeaker);
+    aimSpeaker.toggleOnTrue(m_aimSpeaker);*/
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     new Trigger(m_exampleSubsystem::exampleCondition)
