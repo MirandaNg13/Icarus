@@ -21,13 +21,14 @@ import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 
 public class SwerveModule extends SubsystemBase {
   /** This file is the base for the Swerve Modules driving the robot. Each swerve module will be controlled by the Drive Subsytem. */
 
 
-  private final CANSparkMax m_driveMotor;
+  private final WPI_TalonSRX m_driveMotor;
   private final WPI_VictorSPX m_turningMotor;
 
   private final RelativeEncoder m_driveEncoder;
